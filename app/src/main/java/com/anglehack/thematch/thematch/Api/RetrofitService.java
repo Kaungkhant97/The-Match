@@ -16,8 +16,8 @@ import retrofit2.http.Query;
 
 public interface RetrofitService {
 
-    @GET("team")
-    Flowable<ArrayList<Team>> getTeams(@Query("teamId") String teamId);
+    @GET("challenge/team")
+    Flowable<ArrayList<Team>> getChallengeTeams(@Query("teamId") String teamId);
 
     @GET("team/players")
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);

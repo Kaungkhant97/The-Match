@@ -12,15 +12,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.anglehack.thematch.thematch.Data.Team;
+import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
+import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.R;
 import com.anglehack.thematch.thematch.adapter.ChallengeAdapter;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Ko Oo on 30/6/2018.
@@ -34,17 +41,27 @@ public class ChallengeFragment extends Fragment
     RecyclerView recyclerChallenge;
     Unbinder unbinder;
 
+    @Inject
+    TeamManager teamManager;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.view_challenge, container, false);
+        DaggerManagerComponent.builder().build().inject(this);
+
+        View view = inflater.inflate(R.layout.fragment_challenge, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         recyclerChallenge.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        ChallengeAdapter adapter = new ChallengeAdapter(getContext(), );
-        recyclerChallenge.setAdapter(adapter);
+
+        teamManager.getTeams("1").subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(list->{
+            ChallengeAdapter adapter = new ChallengeAdapter(getContext(), list);
+            recyclerChallenge.setAdapter(adapter);
+        });
+
 
         return view;
     }
