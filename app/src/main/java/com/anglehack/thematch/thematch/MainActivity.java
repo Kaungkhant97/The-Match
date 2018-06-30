@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.anglehack.thematch.thematch.Manager.ChallengeManager;
+import com.anglehack.thematch.thematch.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
     @Override
