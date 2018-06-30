@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anglehack.thematch.thematch.Data.Team;
 import com.anglehack.thematch.thematch.R;
@@ -19,24 +20,31 @@ import butterknife.ButterKnife;
  * Created by Ko Oo on 30/6/2018.
  */
 
-public class ChallengeViewHolder extends Base.RecyclerViewHolder<Team>
+public class ChallengeViewHolder extends Base.RecyclerViewHolder<Team> implements View.OnClickListener
 {
     @BindView(R.id.img_team)
     ImageView imgTeam;
     @BindView(R.id.txt_team_name)
     TextView txtTeamName;
 
+    private Team team;
+
     public ChallengeViewHolder(View itemView, Context context) {
         super(itemView, context);
         ButterKnife.bind(this, itemView);
+        itemView.setOnClickListener(this);
     }
 
     @Override
     public void onBind(ArrayList<Team> itemList) {
-        Team team = getItem(itemList);
+        team = getItem(itemList);
 
-        Picasso.with(getContext()).load(team.getLogoUrl())
-                .centerCrop().resize(100, 100).into(imgTeam);
+        Picasso.with(getContext()).load(team.getLogoUrl()).into(imgTeam);
         txtTeamName.setText(team.getName());
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getContext(), "ID: " + team.getId(), Toast.LENGTH_SHORT).show();
     }
 }
