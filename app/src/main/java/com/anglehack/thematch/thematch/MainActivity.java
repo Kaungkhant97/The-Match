@@ -15,12 +15,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject
     TeamManager manager;
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         DaggerTeamComponent.builder().build().inject(this);
+
 
 
     }
