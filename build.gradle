@@ -27,5 +27,6 @@ task clean(type: Delete) {
 }
 
 ext {
-    buildVersion = '27.1.1';
+    buildVersion = '27.1.1'
+    butterknifeVersion = '8.8.1'
 }

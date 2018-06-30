@@ -34,11 +34,11 @@ public class PlayerListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //  View view = inflater.inflate(R.layout.fragment_playerlist, container);
-        View view = inflater.inflate(R.layout.fragment_playerlist, container,false);
+        View view = inflater.inflate(R.layout.fragment_playerlist, container, false);
         DaggerManagerComponent.builder().build().inject(this);
         recyclerview = (RecyclerView) view.findViewById(R.id.recyceler_playerlist);
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-      //  recyclerview.setAdapter(new PlayerListAdapter(new ArrayList<>()));
+
 
         playerManager.getOtherPlayer("1").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(list -> {
             recyclerview.setAdapter(new PlayerListAdapter(list));

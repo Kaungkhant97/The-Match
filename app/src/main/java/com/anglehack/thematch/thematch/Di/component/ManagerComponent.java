@@ -1,5 +1,7 @@
 package com.anglehack.thematch.thematch.Di.component;
 
+import android.support.v4.app.Fragment;
+
 import com.anglehack.thematch.thematch.Di.module.NetworkModule;
 import com.anglehack.thematch.thematch.Di.module.PlayerModule;
 import com.anglehack.thematch.thematch.Di.module.TeamModule;
@@ -7,6 +9,7 @@ import com.anglehack.thematch.thematch.HomeActivity;
 import com.anglehack.thematch.thematch.MainActivity;
 import com.anglehack.thematch.thematch.Manager.PlayerManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
+import com.anglehack.thematch.thematch.fragments.ChallengeFragment;
 import com.anglehack.thematch.thematch.fragments.PlayerListFragment;
 
 import javax.inject.Singleton;
@@ -23,5 +26,7 @@ public interface ManagerComponent {
 
     void inject(MainActivity mainActivity);
     void inject(HomeActivity homeActivity);
+
+    void inject(ChallengeFragment challengeFragment);
     void inject(PlayerListFragment fragment);
 }

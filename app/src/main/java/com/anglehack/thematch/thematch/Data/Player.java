@@ -8,6 +8,7 @@ public class Player {
     String name;
     String pID;
     String score;
+    boolean selected;
 
     public Player(String name, String pID, String score) {
         this.name = name;
@@ -16,6 +17,14 @@ public class Player {
     }
 
     public Player() {
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
     public void setName(String name) {

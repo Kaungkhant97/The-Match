@@ -3,6 +3,7 @@ package com.anglehack.thematch.thematch;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.fragments.PlayerListFragment;
+import com.anglehack.thematch.thematch.fragments.ChallengeFragment;
 import com.anglehack.thematch.thematch.fragments.ProfileFragment;
 
 import javax.inject.Inject;
@@ -38,17 +40,23 @@ public class HomeActivity extends AppCompatActivity {
                 //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                   changeFragment(PlayerListFragment.newInstance());
                     return true;
                 case R.id.navigation_notifications:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, PlayerListFragment.newInstance()).commit();
+                    changeFragment(new ChallengeFragment());
                     return true;
             }
             return false;
         }
     };
     private Toolbar toolbar;
+
+    private void changeFragment(Fragment fragment)
+    {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container,fragment)
+                .commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
