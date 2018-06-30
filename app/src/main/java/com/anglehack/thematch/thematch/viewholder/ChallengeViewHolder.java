@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.anglehack.thematch.thematch.Data.Team;
 import com.anglehack.thematch.thematch.R;
 import com.anglehack.thematch.thematch.util.Base;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -33,7 +34,9 @@ public class ChallengeViewHolder extends Base.RecyclerViewHolder<Team>
     @Override
     public void onBind(ArrayList<Team> itemList) {
         Team team = getItem(itemList);
-        imgTeam.setImageResource(team.getProfile());
+
+        Picasso.with(getContext()).load(team.getLogoUrl())
+                .centerCrop().resize(100, 100).into(imgTeam);
         txtTeamName.setText(team.getName());
     }
 }
