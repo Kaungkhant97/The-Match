@@ -40,7 +40,7 @@ public class PlayerListFragment extends Fragment {
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
       //  recyclerview.setAdapter(new PlayerListAdapter(new ArrayList<>()));
 
-        playerManager.getPlayers("1").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(list -> {
+        playerManager.getOtherPlayer("1").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(list -> {
             recyclerview.setAdapter(new PlayerListAdapter(list));
         });
 

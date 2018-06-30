@@ -1,6 +1,7 @@
 package com.anglehack.thematch.thematch.Manager;
 
 import com.anglehack.thematch.thematch.Api.RetrofitService;
+import com.anglehack.thematch.thematch.Data.Player;
 import com.anglehack.thematch.thematch.Data.Team;
 
 import java.util.ArrayList;
@@ -25,5 +26,10 @@ public class DefaultTeamManager implements TeamManager {
     @Override
     public Flowable<ArrayList<Team>> getTeams(String playerId) {
         return retrofitService.getTeams(playerId);
+    }
+
+    @Override
+    public Flowable<ArrayList<Player>> getTeamplayer(String teamId) {
+        return retrofitService.getPlayers(teamId);
     }
 }

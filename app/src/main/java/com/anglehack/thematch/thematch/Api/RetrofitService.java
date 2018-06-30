@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -22,15 +23,26 @@ public interface RetrofitService {
     @GET("team/players")
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
 
-    @GET("player/other")
+    @GET("player/others")
     Flowable<ArrayList<Player>> getotherPlayer(@Query("playerId") String playerId);
 
     @GET("place")
     Flowable<Place> getPlace();
 
     @POST("team")
-    Completable createTeam();
+    Completable createTeam(@Body teamCreate teamCreate);
 
 
+    public class teamCreate{
+
+        @SerializedName("leadername")
+        String leadername;
+
+        @SerializedName("")
+        String id;
+
+        @SerializedName("players")
+        ArrayList<String> playerlist;
+    }
 
 }

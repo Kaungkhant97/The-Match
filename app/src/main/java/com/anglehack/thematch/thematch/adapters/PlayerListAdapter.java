@@ -21,7 +21,7 @@ public class PlayerListAdapter extends RecyclerView.Adapter<PlayerListVH> {
     LayoutInflater mInflater;
     List<Player> playerList;
 
-    public PlayerListAda2pter( List<Player> playerList) {
+    public PlayerListAdapter( List<Player> playerList) {
 
         this.playerList = playerList;
     }
