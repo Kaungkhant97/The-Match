@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.anglehack.thematch.thematch.Di.component.DaggerTeamComponent;
+import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.fragments.ProfileFragment;
 
@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DaggerTeamComponent.builder().build().inject(this);
+        DaggerManagerComponent.builder().build().inject(this);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         teamManager.getTeams("1").subscribeOn(Schedulers.io())

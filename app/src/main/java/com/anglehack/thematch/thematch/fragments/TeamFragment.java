@@ -40,7 +40,7 @@ public class TeamFragment extends Fragment {
             mTeamPlayerList.add(new Player("Nyi", "NN-1", "23"));
             mTeamPlayerList.add(new Player("Nyi", "NN-1", "23"));
         }
-        mPlayerListAdapter = new PlayerListAdapter(getLayoutInflater(), mTeamPlayerList);
+        mPlayerListAdapter = new PlayerListAdapter(mTeamPlayerList);
     }
 
     @Override

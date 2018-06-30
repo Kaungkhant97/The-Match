@@ -2,6 +2,7 @@ package com.anglehack.thematch.thematch.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +21,16 @@ public class PlayerListAdapter extends RecyclerView.Adapter<PlayerListVH> {
     LayoutInflater mInflater;
     List<Player> playerList;
 
-    public PlayerListAdapter(LayoutInflater mInflater, List<Player> playerList) {
-        this.mInflater = mInflater;
+    public PlayerListAdapter( List<Player> playerList) {
+
         this.playerList = playerList;
     }
 
     @NonNull
     @Override
     public PlayerListVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.item_view_player_list, parent, false);
+
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_player_list, parent, false);
 
         return new PlayerListVH(itemView);
     }
