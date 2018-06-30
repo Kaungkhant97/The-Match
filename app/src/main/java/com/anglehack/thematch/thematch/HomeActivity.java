@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
+import com.anglehack.thematch.thematch.fragments.PlayerListFragment;
 import com.anglehack.thematch.thematch.fragments.ProfileFragment;
 
 import javax.inject.Inject;
@@ -40,7 +41,8 @@ public class HomeActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, PlayerListFragment.newInstance()).commit();
                     return true;
             }
             return false;

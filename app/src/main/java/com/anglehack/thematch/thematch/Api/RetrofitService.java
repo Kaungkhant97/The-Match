@@ -22,6 +22,9 @@ public interface RetrofitService {
     @GET("team/players")
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
 
+    @GET("player/other")
+    Flowable<ArrayList<Player>> getotherPlayer(@Query("playerId") String playerId);
+
     @GET("place")
     Flowable<Place> getPlace();
 

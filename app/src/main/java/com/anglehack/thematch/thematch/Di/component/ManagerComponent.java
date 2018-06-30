@@ -7,6 +7,7 @@ import com.anglehack.thematch.thematch.HomeActivity;
 import com.anglehack.thematch.thematch.MainActivity;
 import com.anglehack.thematch.thematch.Manager.PlayerManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
+import com.anglehack.thematch.thematch.fragments.PlayerListFragment;
 
 import javax.inject.Singleton;
 
@@ -22,4 +23,5 @@ public interface ManagerComponent {
 
     void inject(MainActivity mainActivity);
     void inject(HomeActivity homeActivity);
+    void inject(PlayerListFragment fragment);
 }
