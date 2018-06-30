@@ -5,7 +5,6 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anglehack.thematch.thematch.Di.component.DaggerTeamComponent;
 import com.anglehack.thematch.thematch.Manager.ChallengeManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DaggerTeamComponent.builder().build().inject(this);
+        //DaggerTeamComponent.builder().build().inject(this);
 
 
 
