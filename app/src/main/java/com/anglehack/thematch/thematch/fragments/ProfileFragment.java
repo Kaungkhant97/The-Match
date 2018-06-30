@@ -52,7 +52,7 @@ public class ProfileFragment extends Fragment {
         viewPager = view.findViewById(R.id.view_pager);
         tabLayout = view.findViewById(R.id.sliding_tab);
 
-        viewPager.setAdapter(new PlayerFragmentPagerAdapter(getFragmentManager()));
+        viewPager.setAdapter(new PlayerFragmentPagerAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         return view;

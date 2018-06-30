@@ -9,8 +9,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.anglehack.thematch.thematch.Di.component.DaggerTeamComponent;
+import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
+import com.anglehack.thematch.thematch.fragments.ProfileFragment;
 
 import javax.inject.Inject;
 
@@ -31,7 +32,9 @@ public class HomeActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container,ProfileFragment.newInstance()).commit();
+                //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
@@ -51,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DaggerTeamComponent.builder().build().inject(this);
+        DaggerManagerComponent.builder().build().inject(this);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         teamManager.getTeams("1").subscribeOn(Schedulers.io())
@@ -62,7 +65,9 @@ public class HomeActivity extends AppCompatActivity {
                     Log.e("onCreate: ", e.getLocalizedMessage());
                 });
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setSelectedItemId(R.id.navigation_home);
     }
 
 }

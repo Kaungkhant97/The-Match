@@ -1,6 +1,7 @@
 package com.anglehack.thematch.thematch.Api;
 
 import com.anglehack.thematch.thematch.Data.Place;
+import com.anglehack.thematch.thematch.Data.Player;
 import com.anglehack.thematch.thematch.Data.Team;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -17,6 +18,9 @@ public interface RetrofitService {
 
     @GET("team")
     Flowable<ArrayList<Team>> getTeams(@Query("teamId") String teamId);
+
+    @GET("team/players")
+    Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
 
     @GET("place")
     Flowable<Place> getPlace();

@@ -7,4 +7,5 @@ import io.reactivex.Flowable;
 
 public interface ChallengeManager {
     Flowable<Challenge> getChallenges();
+
 }
