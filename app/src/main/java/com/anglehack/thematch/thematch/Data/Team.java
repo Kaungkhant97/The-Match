@@ -13,7 +13,7 @@ public  class Team {
     private String name;
     @SerializedName("logo_url")
     @Expose
-    private Object logoUrl;
+    private String logoUrl;
     @SerializedName("matching_status")
     @Expose
     private Integer matchingStatus;
@@ -49,11 +49,11 @@ public  class Team {
         this.name = name;
     }
 
-    public Object getLogoUrl() {
+    public String getLogoUrl() {
         return logoUrl;
     }
 
-    public void setLogoUrl(Object logoUrl) {
+    public void setLogoUrl(String logoUrl) {
         this.logoUrl = logoUrl;
     }
 
