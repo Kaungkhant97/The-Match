@@ -43,26 +43,10 @@ public class ChallengeFragment extends Fragment
         unbinder = ButterKnife.bind(this, view);
 
         recyclerChallenge.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        ChallengeAdapter adapter = new ChallengeAdapter(getContext(), getTeams());
+        ChallengeAdapter adapter = new ChallengeAdapter(getContext(), );
         recyclerChallenge.setAdapter(adapter);
 
         return view;
-    }
-
-    private ArrayList<Team> getTeams()
-    {
-        ArrayList<Team> teams = new ArrayList<>();
-
-        String[] names = {"Team 1", "Team 2", "Team 3", "Team 4", "Team 5"};
-        int[] profiles = {R.drawable.ic_android, R.drawable.ic_people_white, R.drawable.ic_android,
-                R.drawable.ic_people_white, R.drawable.ic_android};
-
-        for(int i = 0, l = names.length; i < l; i++)
-        {
-            teams.add(new Team());
-        }
-
-        return teams;
     }
 
     @OnClick(R.id.btn_find_match)

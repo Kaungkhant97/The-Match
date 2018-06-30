@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_medium"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/iv_player_image_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_people_white"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/tv_player_point_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="165"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_regular"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/tv_player_name_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nyi Nyi Lin"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_regular_2x"
+        android:layout_toRightOf="@id/iv_player_image_row"
+        android:layout_margin="@dimen/margin_medium"/>
+
+    <TextView
+        android:id="@+id/tv_player_id_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NN - 2345"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_regular"
+        android:layout_margin="@dimen/margin_medium"
+        android:layout_toRightOf="@id/iv_player_image_row"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_below="@id/iv_player_image_row"/>
+
+
+</RelativeLayout>
