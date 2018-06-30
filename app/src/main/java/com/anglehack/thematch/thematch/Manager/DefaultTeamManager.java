@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 
-public class DefaultTeamManager implements TeamManager{
+public class DefaultTeamManager implements TeamManager {
 
     private final RetrofitService retrofitService;
 
     public DefaultTeamManager(RetrofitService retrofit) {
 
-      this.retrofitService = retrofit;
+        this.retrofitService = retrofit;
     }
 
     @Override
@@ -24,6 +24,6 @@ public class DefaultTeamManager implements TeamManager{
 
     @Override
     public Flowable<ArrayList<Team>> getTeams(String playerId) {
-        return Flowable.just(new ArrayList<Team>()) ;
+        return retrofitService.getTeams(playerId);
     }
 }

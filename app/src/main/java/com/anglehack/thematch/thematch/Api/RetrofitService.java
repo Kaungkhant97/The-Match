@@ -2,20 +2,28 @@ package com.anglehack.thematch.thematch.Api;
 
 import com.anglehack.thematch.thematch.Data.Place;
 import com.anglehack.thematch.thematch.Data.Team;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RetrofitService {
 
-    @GET("")
-    Flowable<Team> getTeam();
+    @GET("team")
+    Flowable<ArrayList<Team>> getTeams(@Query("teamId") String teamId);
 
-    @GET("")
+    @GET("place")
     Flowable<Place> getPlace();
 
-    @POST("")
+    @POST("team")
     Completable createTeam();
+
+
+
 }

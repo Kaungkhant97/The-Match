@@ -54,7 +54,7 @@ public class NetworkModule {
         return new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(converterFactory)
-                .baseUrl("https://www.google.com")
+                .baseUrl("http://192.168.43.188:90/api/")
                 .client(client)
                 .build();
 
