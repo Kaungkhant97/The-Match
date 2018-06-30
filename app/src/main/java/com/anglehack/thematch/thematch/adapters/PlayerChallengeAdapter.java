@@ -45,4 +45,10 @@ public class PlayerChallengeAdapter extends RecyclerView.Adapter<PlayerChallenge
     public int getItemCount() {
         return challengeList.size();
     }
+
+    public void setChallengeList(List<Challenge> challengeList) {
+        this.challengeList.clear();
+        this.challengeList = challengeList;
+        notifyDataSetChanged();
+    }
 }

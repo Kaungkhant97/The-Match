@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <corners />
+    <corners
+        android:bottomLeftRadius="@dimen/margin_xlarge"
+        android:topLeftRadius="@dimen/margin_xlarge" />
 
     <size
         android:width="80dp"

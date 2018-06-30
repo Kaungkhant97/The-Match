@@ -19,7 +19,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class NetworkModule {
+    //public String baseURL = "http://192.168.43.231/theMatch/public/index.php/api/";
+    public static String baseURL = "http://192.168.43.188:90";
 
+
+    private String akmServer = "http://192.168.43.188:90/api/";
     @Provides
     @Singleton
     OkHttpClient providehttpClient() {
@@ -54,7 +58,7 @@ public class NetworkModule {
         return new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(converterFactory)
-                .baseUrl("http://192.168.43.231/theMatch/public/index.php/api/")
+                .baseUrl(baseURL)
                 .client(client)
                 .build();
 

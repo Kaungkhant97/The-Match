@@ -50,6 +50,7 @@ public class ChallengeFragment extends Fragment
         View view = inflater.inflate(R.layout.fragment_challenge, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+
         recyclerChallenge.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
         teamManager.getTeams("1").subscribeOn(Schedulers.io())

@@ -7,13 +7,13 @@ import java.util.ArrayList;
 
 import io.reactivex.Flowable;
 
-public class DefaultPlayerManager implements PlayerManager
-{
+public class DefaultPlayerManager implements PlayerManager {
     private final RetrofitService retrofitService;
 
     public DefaultPlayerManager(RetrofitService retrofitService) {
         this.retrofitService = retrofitService;
     }
+
 
     @Override
     public Flowable<ArrayList<Player>> getPlayers(String teamId) {

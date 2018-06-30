@@ -19,7 +19,6 @@ public class PlayerModule {
     @Provides
     @Singleton
     PlayerManager providePlayerManager(RetrofitService retrofitService){
-
         return new DefaultPlayerManager(retrofitService);
     }
 }

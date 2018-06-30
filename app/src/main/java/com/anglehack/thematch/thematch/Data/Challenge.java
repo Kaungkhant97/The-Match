@@ -1,14 +1,29 @@
 package com.anglehack.thematch.thematch.Data;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Challenge {
 
+    @SerializedName("id")
     int id;
+
+    @SerializedName("challenger_team_name")
     String challengerTeamName;
+
+    @SerializedName("accepted_team_name")
     String acceptedTeamName;
+
+    @SerializedName("place_id")
     int placeID;
+
+    @SerializedName("reserved_time")
     String reservedTime;
+
+    @SerializedName("status")
     int status;
+
     int point;
+
     int result_id;
 
     public Challenge(int id, String challengerTeamName, String acceptedTeamName, int placeID, String reservedTime, int status, int point, int result_id) {
