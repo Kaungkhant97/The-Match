@@ -17,7 +17,7 @@
 
         </activity>
 
-        <activity android:name=".activities.LoginActivity"
+        <activity android:name=".HomeActivity"
             android:label="Log in Activity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"/>
+
     </application>
 
 </manifest>
