@@ -10,6 +10,7 @@ import com.anglehack.thematch.thematch.MainActivity;
 import com.anglehack.thematch.thematch.Manager.PlayerManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.fragments.ChallengeFragment;
+import com.anglehack.thematch.thematch.fragments.PlayerChallenge;
 
 import javax.inject.Singleton;
 
@@ -27,4 +28,6 @@ public interface ManagerComponent {
     void inject(HomeActivity homeActivity);
 
     void inject(ChallengeFragment challengeFragment);
+    void inject(PlayerChallenge playerChallenge);
+
 }

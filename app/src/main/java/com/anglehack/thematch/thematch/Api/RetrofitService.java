@@ -1,5 +1,6 @@
 package com.anglehack.thematch.thematch.Api;
 
+import com.anglehack.thematch.thematch.Data.Challenge;
 import com.anglehack.thematch.thematch.Data.Place;
 import com.anglehack.thematch.thematch.Data.Player;
 import com.anglehack.thematch.thematch.Data.Team;
@@ -10,13 +11,14 @@ import java.util.ArrayList;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface RetrofitService {
 
-    @GET("theMatch/public/index.php/api/challenge/team")
+    @GET("challenge/team")
     Flowable<ArrayList<Team>> getChallengeTeams(@Query("teamId") String teamId);
 
     @GET("team/players")
@@ -28,6 +30,13 @@ public interface RetrofitService {
     @POST("team")
     Completable createTeam();
 
+    @GET("api/team/challenge/accept")
+    Flowable<ArrayList<Challenge>> getaccepted(@Query("teamId") String teamId);
 
+    @GET("api/team/challenge/pending")
+    Flowable<ArrayList<Challenge>> getPending(@Query("teamId") String teamId);
+
+    @GET("api/team/challenge/history")
+    Flowable<ArrayList<Challenge>> getHistory(@Query("teamId") String teamId);
 
 }

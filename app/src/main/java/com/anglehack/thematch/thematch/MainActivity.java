@@ -1,11 +1,9 @@
 package com.anglehack.thematch.thematch;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.anglehack.thematch.thematch.Manager.ChallengeManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 
 import javax.inject.Inject;
