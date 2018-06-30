@@ -10,7 +10,7 @@ import io.reactivex.Flowable;
 public interface TeamManager {
     Completable createTeam();
 
-    Flowable<ArrayList<Team>>  getTeams(String playerId);
+    Flowable<ArrayList<Team>>  getTeams(String teamId);
 
 
 }

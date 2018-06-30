@@ -54,7 +54,7 @@ public class NetworkModule {
         return new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(converterFactory)
-                .baseUrl("http://192.168.43.231/")
+                .baseUrl("http://192.168.43.231/theMatch/public/index.php/api/")
                 .client(client)
                 .build();
 
