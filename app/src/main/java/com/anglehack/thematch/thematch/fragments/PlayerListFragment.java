@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.anglehack.thematch.thematch.Api.RetrofitService;
+import com.anglehack.thematch.thematch.Data.Player;
 import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
 import com.anglehack.thematch.thematch.Manager.PlayerManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
@@ -38,6 +39,7 @@ public class PlayerListFragment extends Fragment {
 
     @Inject
     TeamManager teamManager;
+    private PlayerListAdapter adapter;
 
     @Nullable
     @Override
@@ -49,13 +51,20 @@ public class PlayerListFragment extends Fragment {
         recyclerview.setLayoutManager(new GridLayoutManager(getContext(),3));
 
         FloatingActionButton fab_create = view.findViewById(R.id.fab_create);
+        adapter = new PlayerListAdapter(new ArrayList<>());
         fab_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] players = {"1", "5", "12", "10", "14"};
-                List<String> playerlist = Arrays.asList(players);
 
-                teamManager.createTeam(new RetrofitService.teamCreate("4", "hihi", playerlist)).subscribeOn(Schedulers.io()).subscribe(() -> {
+
+                List<String> playerlist = new ArrayList<>();
+                for(Player p :adapter.getPlayerList()){
+                    if(p.isSelected()){
+                        playerlist.add(p.getId());
+                    }
+
+                }
+                teamManager.createTeam(new RetrofitService.teamCreate("3", "hihi", playerlist)).subscribeOn(Schedulers.io()).subscribe(() -> {
 
                 },e->{
                     Log.e( "onClick: ", e.getLocalizedMessage());
@@ -63,7 +72,8 @@ public class PlayerListFragment extends Fragment {
             }
         });
         playerManager.getOtherPlayer("1").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(list -> {
-            recyclerview.setAdapter(new PlayerListAdapter(list));
+            adapter.addall(list);
+            recyclerview.setAdapter(adapter);
         });
 
         return view;

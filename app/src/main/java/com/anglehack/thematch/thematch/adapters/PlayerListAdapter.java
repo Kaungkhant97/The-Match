@@ -47,6 +47,15 @@ public class PlayerListAdapter extends RecyclerView.Adapter<PlayerListVH> {
         });
     }
 
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public void addall(List<Player> players){
+        playerList.addAll(players);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return playerList.size();
