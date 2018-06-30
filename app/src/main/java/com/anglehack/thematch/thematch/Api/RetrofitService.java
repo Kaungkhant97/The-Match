@@ -4,6 +4,7 @@ import com.anglehack.thematch.thematch.Data.Challenge;
 import com.anglehack.thematch.thematch.Data.Place;
 import com.anglehack.thematch.thematch.Data.Player;
 import com.anglehack.thematch.thematch.Data.Team;
+import com.anglehack.thematch.thematch.Data.TeamDetail;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -22,6 +23,9 @@ public interface RetrofitService {
 
     @GET("challenge/team")
     Flowable<ArrayList<Team>> getChallengeTeams(@Query("teamId") String teamId);
+
+    @GET("team")
+    Flowable<TeamDetail> getTeamDetail(@Query("teamId") String teamId);
 
     @GET("team/players")
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);

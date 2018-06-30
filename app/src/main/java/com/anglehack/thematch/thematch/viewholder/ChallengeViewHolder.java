@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.anglehack.thematch.thematch.Data.Team;
 import com.anglehack.thematch.thematch.R;
+import com.anglehack.thematch.thematch.activities.ChallengeTeamDetail;
 import com.anglehack.thematch.thematch.util.Base;
 import com.squareup.picasso.Picasso;
 
@@ -45,6 +46,7 @@ public class ChallengeViewHolder extends Base.RecyclerViewHolder<Team> implement
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getContext(), "ID: " + team.getId(), Toast.LENGTH_SHORT).show();
+
+        getContext().startActivity(ChallengeTeamDetail.getInstance(team.getId()));
     }
 }
