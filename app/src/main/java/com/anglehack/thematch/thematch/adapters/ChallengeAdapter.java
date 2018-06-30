@@ -1,4 +1,4 @@
-package com.anglehack.thematch.thematch.adapter;
+package com.anglehack.thematch.thematch.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

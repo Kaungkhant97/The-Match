@@ -11,13 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.anglehack.thematch.thematch.Data.Team;
 import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.R;
-import com.anglehack.thematch.thematch.adapter.ChallengeAdapter;
-
-import java.util.ArrayList;
+import com.anglehack.thematch.thematch.adapters.ChallengeAdapter;
 
 import javax.inject.Inject;
 
@@ -25,7 +22,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
