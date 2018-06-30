@@ -58,6 +58,10 @@
 
         </activity>
 
+        <activity android:name=".activities.TeamListActivity"/>
+        <activity android:name=".activities.TeamRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

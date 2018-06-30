@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <Button
         android:id="@+id/btn_team_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="+"
+        android:textColor="@color/colorWhite"
+        android:background="#FF4081"
         android:layout_alignParentBottom="true"/>
 
     <android.support.v7.widget.RecyclerView
@@ -15,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/btn_team_list"
-        android:layout_margin="@dimen/margin_medium"/>
+        android:layout_margin="@dimen/margin_medium"
+        android:background="@color/colorPrimary"/>
 
 </RelativeLayout>

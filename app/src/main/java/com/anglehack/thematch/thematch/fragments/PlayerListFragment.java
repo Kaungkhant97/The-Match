@@ -71,10 +71,10 @@ public class PlayerListFragment extends Fragment {
                 });
             }
         });
-        playerManager.getOtherPlayer("1").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(list -> {
+        /*playerManager.getOtherPlayer("1").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(list -> {
             adapter.addall(list);
             recyclerview.setAdapter(adapter);
-        });
+        });*/
 
         return view;
     }

@@ -1,6 +1,7 @@
 package com.anglehack.thematch.thematch.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.anglehack.thematch.thematch.R;
+import com.anglehack.thematch.thematch.activities.TeamListActivity;
 import com.anglehack.thematch.thematch.adapters.PlayerFragmentPagerAdapter;
 import com.squareup.picasso.Picasso;
 
@@ -118,7 +120,8 @@ public class ProfileFragment extends Fragment {
         ivTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent in = new Intent(getContext(), TeamListActivity.class);
+                startActivity(in);
             }
         });
 
