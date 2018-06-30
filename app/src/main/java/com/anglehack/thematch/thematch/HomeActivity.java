@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
+import com.anglehack.thematch.thematch.fragments.PlayerListFragment;
 import com.anglehack.thematch.thematch.fragments.ChallengeFragment;
 import com.anglehack.thematch.thematch.fragments.ProfileFragment;
 
@@ -39,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
                 //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                   changeFragment(PlayerListFragment.newInstance());
                     return true;
                 case R.id.navigation_notifications:
                     changeFragment(new ChallengeFragment());

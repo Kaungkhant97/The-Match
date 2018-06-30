@@ -23,6 +23,7 @@ public class NetworkModule {
     public static String baseURL = "http://192.168.43.188:90";
 
 
+    private String akmServer = "http://192.168.43.188:90/api/";
     @Provides
     @Singleton
     OkHttpClient providehttpClient() {

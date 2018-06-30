@@ -8,7 +8,10 @@ import io.reactivex.Flowable;
 
 public interface PlayerManager {
 
-    Flowable<ArrayList<Player>> getPlayers();
+    Flowable<ArrayList<Player>> getOtherPlayer(String teamid);
+
+
+
 
 
 }
