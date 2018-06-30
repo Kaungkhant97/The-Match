@@ -7,6 +7,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
@@ -17,7 +18,7 @@ import retrofit2.http.Query;
 
 public interface RetrofitService {
 
-    @GET("theMatch/public/index.php/api/challenge/team")
+    @GET("challenge/team")
     Flowable<ArrayList<Team>> getChallengeTeams(@Query("teamId") String teamId);
 
     @GET("team/players")
@@ -29,20 +30,25 @@ public interface RetrofitService {
     @GET("place")
     Flowable<Place> getPlace();
 
-    @POST("team")
+    @POST("team/create")
     Completable createTeam(@Body teamCreate teamCreate);
 
 
-    public class teamCreate{
+    public static class teamCreate{
+        public teamCreate(String leadername, String teamname, List<String> playerlist) {
+            this.leaderId = leadername;
+            this.teamname = teamname;
+            this.playerlist = playerlist;
+        }
 
-        @SerializedName("leadername")
-        String leadername;
+        @SerializedName("leader")
+        String leaderId;
 
-        @SerializedName("")
-        String id;
+        @SerializedName("teamName")
+        String teamname;
 
         @SerializedName("players")
-        ArrayList<String> playerlist;
+        List<String> playerlist;
     }
 
 }

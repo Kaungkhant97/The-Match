@@ -19,8 +19,8 @@ public class DefaultTeamManager implements TeamManager {
     }
 
     @Override
-    public Completable createTeam() {
-        return null;
+    public Completable createTeam(RetrofitService.teamCreate team) {
+        return retrofitService.createTeam(team);
     }
 
     @Override

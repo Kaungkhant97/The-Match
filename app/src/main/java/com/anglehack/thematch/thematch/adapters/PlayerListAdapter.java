@@ -38,6 +38,13 @@ public class PlayerListAdapter extends RecyclerView.Adapter<PlayerListVH> {
     @Override
     public void onBindViewHolder(@NonNull PlayerListVH holder, int position) {
         holder.bindData(playerList.get(position));
+        holder.addbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playerList.get(holder.getAdapterPosition()).setSelected(true);
+                notifyItemChanged(holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override
