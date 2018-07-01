@@ -16,7 +16,7 @@ public class DefaultPlayerManager implements PlayerManager {
 
 
     @Override
-    public Flowable<ArrayList<Player>> getPlayers(String teamId) {
-        return retrofitService.getPlayers(teamId);
+    public Flowable<ArrayList<Player>> getOtherPlayers(String teamId) {
+        return retrofitService.getotherPlayer(teamId);
     }
 }

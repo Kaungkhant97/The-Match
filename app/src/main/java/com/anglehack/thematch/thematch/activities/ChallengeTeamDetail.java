@@ -16,6 +16,7 @@ import com.anglehack.thematch.thematch.Manager.TeamDetailManager;
 import com.anglehack.thematch.thematch.Match;
 import com.anglehack.thematch.thematch.R;
 import com.anglehack.thematch.thematch.adapters.PlayerListAdapter;
+import com.anglehack.thematch.thematch.adapters.PlayerMemberAdapter;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -43,7 +44,7 @@ public class ChallengeTeamDetail extends AppCompatActivity {
     @BindView(R.id.rv_team_player_list)
     RecyclerView rvTeamPlayerList;
 
-    private PlayerListAdapter adapter;
+    private PlayerMemberAdapter adapter;
 
     public static Intent getInstance(int id) {
         Intent in = new Intent(Match.getContext(), ChallengeTeamDetail.class);
@@ -64,6 +65,7 @@ public class ChallengeTeamDetail extends AppCompatActivity {
 
         Intent in = getIntent();
         id = in.getIntExtra(ID, 0);
+        txtTeamId.setText("ID: " + id);
 
         rvTeamPlayerList.setLayoutManager(new LinearLayoutManager(this));
 
@@ -71,7 +73,7 @@ public class ChallengeTeamDetail extends AppCompatActivity {
         teamDetailManager.getTeamDetail("1").subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(list -> {
 
-            adapter = new PlayerListAdapter(list.getPlayers());
+            adapter = new PlayerMemberAdapter(this, list.getPlayers());
             rvTeamPlayerList.setAdapter(adapter);
 
             if(getSupportActionBar() != null)
@@ -80,7 +82,6 @@ public class ChallengeTeamDetail extends AppCompatActivity {
             }
 
             Picasso.with(this).load(list.getLogoUrl()).into(imgTeamLogo);
-            txtTeamId.setText(String.valueOf(list.getId()));
         });
     }
 
