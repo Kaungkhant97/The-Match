@@ -13,7 +13,7 @@ public class TeamCreateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_create);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, PlayerListFragment.newInstance()).commit();
+        String teamname = getIntent().getStringExtra("TEAMNAME");
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, PlayerListFragment.newInstance(teamname)).commit();
     }
 }

@@ -83,8 +83,8 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
     public static Fragment newInstance(String challengedTeam,String teamname) {
         PlaceFragment fragment = new PlaceFragment();
         Bundle args = new Bundle();
-        args.putString(CHALLENGETEAM, teamname);
-        args.putString(TEAMNAME, challengedTeam);
+        args.putString(CHALLENGETEAM, challengedTeam);
+        args.putString(TEAMNAME, teamname);
         fragment.setArguments(args);
         return fragment;
     }
@@ -102,7 +102,7 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
         if (challengedTeam.equals("3")) {
             message = "You are about to make a challenge in this stadium";
         } else {
-            message = "You are about to make a challenge with this" + teamname + "in this " + place.getName();
+            message = "You are about to make a challenge with this d" + teamname + "in this " + place.getName();
 
 
         }

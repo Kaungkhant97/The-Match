@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:padding="@dimen/margin_xlarge">
@@ -10,9 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create"
-        android:textStyle="bold"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_heading_1x"/>
+        android:textSize="@dimen/text_heading_1x"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/label_team"
@@ -20,20 +21,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/label_new"
         android:text="New Team"
-        android:textStyle="bold"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_heading_1x"/>
+        android:textSize="@dimen/text_heading_1x"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/label_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_new"
         android:layout_alignParentEnd="true"
+        android:layout_below="@id/label_new"
         android:text="/ 2 "
-        android:textStyle="bold"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_regular_2x"/>
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/label_1"
@@ -42,19 +43,19 @@
         android:layout_alignBottom="@id/label_2"
         android:layout_toLeftOf="@id/label_2"
         android:text="1"
-        android:textStyle="bold"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_heading_1x"/>
+        android:textSize="@dimen/text_heading_1x"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/label_step"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_2"
         android:layout_alignParentEnd="true"
+        android:layout_below="@id/label_2"
         android:text="Step"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_regular_2x"/>
+        android:textSize="@dimen/text_regular_2x" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/label_name"
@@ -63,66 +64,69 @@
         android:layout_centerInParent="true">
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/edtxt_input"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:hint="Name"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
-            android:singleLine="true" />
+            tools:text="asdasdasd" />
 
     </android.support.design.widget.TextInputLayout>
 
-   <ImageView
-       android:id="@+id/label_camera"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:src="@drawable/ic_photo_camera"
-       android:layout_below="@id/label_step"
-       android:layout_above="@id/label_name"
-       android:padding="@dimen/margin_medium"
-       android:background="@drawable/border"
-       android:layout_margin="@dimen/margin_xlarge"
-       />
+    <ImageView
+        android:id="@+id/label_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/label_name"
+        android:layout_below="@id/label_step"
+        android:layout_margin="@dimen/margin_xlarge"
+        android:background="@drawable/border"
+        android:padding="@dimen/margin_medium"
+        android:src="@drawable/ic_photo_camera"
+        android:visibility="gone" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_below="@id/label_step"
         android:layout_above="@id/label_name"
+        android:layout_below="@id/label_step"
+        android:layout_toRightOf="@id/label_camera"
+        android:gravity="center|left"
         android:text="Upload a team picture (Optional)"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/text_small"
-        android:layout_toRightOf="@id/label_camera"/>
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/label_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="------->"
         android:layout_alignParentBottom="true"
-        android:textSize="@dimen/text_heading_1x"
+        android:layout_centerHorizontal="true"
+        android:text="------->"
         android:textColor="@color/colorWhite"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="@dimen/text_heading_1x" />
 
     <TextView
         android:id="@+id/label_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/label_arrow"
+        android:layout_centerHorizontal="true"
         android:text="Add Team Member"
-        android:textColor="@color/colorWhite"
-        android:layout_centerHorizontal="true"/>
+        android:textColor="@color/colorWhite" />
 
     <Button
         android:id="@+id/btn_contiue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_next"
         android:layout_above="@id/label_add"
         android:layout_margin="@dimen/margin_medium"
+        android:background="@drawable/btn_next"
         android:text="Next"
-        android:textColor="@color/colorWhite"/>
+        android:textColor="@color/colorWhite" />
 
 </RelativeLayout>

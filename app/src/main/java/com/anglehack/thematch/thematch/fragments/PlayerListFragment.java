@@ -35,6 +35,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class PlayerListFragment extends Fragment {
 
+    private static String TEAMNAME="teamname";
     private RecyclerView recyclerview;
 
     @Inject
@@ -43,6 +44,7 @@ public class PlayerListFragment extends Fragment {
     @Inject
     TeamManager teamManager;
     private PlayerListAdapter adapter;
+    private String teamname;
 
     @Nullable
     @Override
@@ -67,7 +69,10 @@ public class PlayerListFragment extends Fragment {
                     }
 
                 }
-                teamManager.createTeam(new RetrofitService.teamCreate("3", "hihi", playerlist)).subscribeOn(Schedulers.io()).subscribe(() -> {
+                if(teamname == null){
+                    teamname= "hihi";
+                }
+                teamManager.createTeam(new RetrofitService.teamCreate("3", teamname, playerlist)).subscribeOn(Schedulers.io()).subscribe(() -> {
                   getActivity().startActivity(new Intent(getActivity(),HomeActivity.class));
                 },e->{
 
@@ -84,10 +89,18 @@ public class PlayerListFragment extends Fragment {
     }
 
 
-    public static PlayerListFragment newInstance() {
+    public static PlayerListFragment newInstance(String teamname) {
         PlayerListFragment fragment = new PlayerListFragment();
         Bundle args = new Bundle();
+        args.putString(TEAMNAME,teamname);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        teamname = getArguments().getString(TEAMNAME);
     }
 }
