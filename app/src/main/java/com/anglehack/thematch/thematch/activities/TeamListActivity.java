@@ -64,6 +64,8 @@ public class TeamListActivity extends AppCompatActivity {
                     ChallengeAdapter adapter = new ChallengeAdapter(this, List);
 
                     rvTeamList.setAdapter(adapter);
+                },e->{
+
                 });
 
 

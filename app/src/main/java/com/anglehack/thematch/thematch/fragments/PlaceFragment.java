@@ -102,7 +102,7 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
         if (challengedTeam.equals("3")) {
             message = "You are about to make a challenge in this stadium";
         } else {
-            message = "You are about to make a challenge with this d" + teamname + "in this " + place.getName();
+            message = "You are about to make a challenge with this d" + teamname + " in this " + place.getName();
 
 
         }
