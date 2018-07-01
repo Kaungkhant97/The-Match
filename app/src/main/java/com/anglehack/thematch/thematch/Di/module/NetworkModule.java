@@ -19,19 +19,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class NetworkModule {
-<<<<<<< HEAD
-    public String baseURL = "http://192.168.43.231/theMatch/public/index.php/api/";
+    //public String baseURL = "http://192.168.43.231/theMatch/public/index.php/api/";
    // public static String baseURL = "http://192.168.43.188:90/api/";
 
 
    // private String akmServer = "http://192.168.43.188:90/api/";
-=======
-    public String baseURL = "http://192.168.43.231/theMatch/public/index.php/";
+    public String baseURL = "http://192.168.43.188:90/api/";
     //public static String baseURL = "http://192.168.43.188:90";
 
 
     private String akmServer = "http://192.168.43.188:90/api/";
->>>>>>> 6cc313492a2a8c961c748ef904f129b488ce474a
     @Provides
     @Singleton
     OkHttpClient providehttpClient() {

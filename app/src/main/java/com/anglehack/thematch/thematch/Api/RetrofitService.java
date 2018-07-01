@@ -21,44 +21,41 @@ import retrofit2.http.Query;
 
 public interface RetrofitService {
 
-    @GET("api/challenge/team")
+    @GET("challenge/team")
     Flowable<ArrayList<Team>> getChallengeTeams(@Query("teamId") String teamId);
 
-    @GET("api/team")
+    @GET("team")
     Flowable<TeamDetail> getTeamDetail(@Query("teamId") String teamId);
 
-<<<<<<< HEAD
+
     @POST("challenge/send")
     Completable requestChallege(@Body()challengeBody  challengeBody);
 
     @GET("team/players")
-=======
-    @GET("api/team/players")
->>>>>>> 6cc313492a2a8c961c748ef904f129b488ce474a
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
 
-    @GET("api/player/others")
+    @GET("player/others")
     Flowable<ArrayList<Player>> getotherPlayer(@Query("playerId") String playerId);
 
     @GET("places")
     Flowable<ArrayList<Place>> getPlace();
 
-    @POST("api/team/create")
+    @POST("team/create")
     Completable createTeam(@Body teamCreate teamCreate);
 
-    @GET("api/team/challenge/accept")
+    @GET("team/challenge/accept")
     Flowable<ArrayList<Challenge>> getaccepted(@Query("teamId") String teamId);
 
-    @GET("api/team/challenge/pending")
+    @GET("team/challenge/pending")
     Flowable<ArrayList<Challenge>> getPending(@Query("teamId") String teamId);
 
-    @GET("api/team/challenge/history")
+    @GET("team/challenge/history")
     Flowable<ArrayList<Challenge>> getHistory(@Query("teamId") String teamId);
 
-    @GET("api/team/invite/accept")
+    @GET("team/invite/accept")
     Flowable<String> accepted(@Query("challengeId") String challengeID);
 
-    @GET("api/team/invite/decline")
+    @GET("team/invite/decline")
     Flowable<String> decline(@Query("challengeId") String challengeID);
 
     public static class teamCreate{
@@ -102,7 +99,7 @@ public interface RetrofitService {
     }
 
 
-    @GET("api/player/team")
+    @GET("player/team")
     Flowable<ArrayList<Team>> getPlayerTeamList(@Query("playerId") String playerId);
 
 }
