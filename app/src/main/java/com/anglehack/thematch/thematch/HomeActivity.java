@@ -32,34 +32,34 @@ public class HomeActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        BottomNavigationView navigation;
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container,ProfileFragment.newInstance()).commit();
-                //    mTextMessage.setText(R.string.title_home);
+                            .replace(R.id.container, ProfileFragment.newInstance()).commit();
+                    //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-<<<<<<< HEAD
-                   changeFragment(PlaceFragment.newInstance("1"));
-=======
-                   changeFragment(new ChallengeFragment());
->>>>>>> 6cc313492a2a8c961c748ef904f129b488ce474a
+
+                    changeFragment(new ChallengeFragment());
+
                     return true;
                 case R.id.navigation_notifications:
-                    changeFragment(PlayerListFragment.newInstance());
+                    changeFragment(PlaceFragment.newInstance("3"));
                     return true;
             }
             return false;
         }
     };
     private Toolbar toolbar;
+    public BottomNavigationView navigation;
 
-    private void changeFragment(Fragment fragment)
-    {
+
+    private void changeFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container,fragment)
+                .replace(R.id.container, fragment)
                 .commit();
     }
 
@@ -73,7 +73,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mTextMessage = (TextView) findViewById(R.id.message);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_home);

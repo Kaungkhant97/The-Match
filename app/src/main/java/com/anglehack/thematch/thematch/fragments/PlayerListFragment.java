@@ -1,5 +1,6 @@
 package com.anglehack.thematch.thematch.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,10 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.anglehack.thematch.thematch.Api.RetrofitService;
 import com.anglehack.thematch.thematch.Data.Player;
 import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
+import com.anglehack.thematch.thematch.HomeActivity;
 import com.anglehack.thematch.thematch.Manager.PlayerManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.R;
@@ -65,8 +68,9 @@ public class PlayerListFragment extends Fragment {
 
                 }
                 teamManager.createTeam(new RetrofitService.teamCreate("3", "hihi", playerlist)).subscribeOn(Schedulers.io()).subscribe(() -> {
-
+                  getActivity().startActivity(new Intent(getActivity(),HomeActivity.class));
                 },e->{
+
                     Log.e( "onClick: ", e.getLocalizedMessage());
                 });
             }
