@@ -29,19 +29,19 @@ public interface RetrofitService {
     @GET("player/others")
     Flowable<ArrayList<Player>> getotherPlayer(@Query("playerId") String playerId);
 
-    @GET("place")
-    Flowable<Place> getPlace();
+    @GET("places")
+    Flowable<ArrayList<Place>> getPlace();
 
     @POST("team/create")
     Completable createTeam(@Body teamCreate teamCreate);
 
-    @GET("api/team/challenge/accept")
+    @GET("team/challenge/accept")
     Flowable<ArrayList<Challenge>> getaccepted(@Query("teamId") String teamId);
 
-    @GET("api/team/challenge/pending")
+    @GET("team/challenge/pending")
     Flowable<ArrayList<Challenge>> getPending(@Query("teamId") String teamId);
 
-    @GET("api/team/challenge/history")
+    @GET("team/challenge/history")
     Flowable<ArrayList<Challenge>> getHistory(@Query("teamId") String teamId);
 
     public static class teamCreate{
