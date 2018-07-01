@@ -20,11 +20,12 @@
 
         <ImageView
             android:id="@+id/iv_my_team"
-            android:layout_width="56dp"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@mipmap/ic_launcher"
             android:layout_weight="1"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"/>
 
         <TextView
             android:id="@+id/tv_team1_name"
@@ -51,11 +52,12 @@
 
         <ImageView
             android:id="@+id/iv_other_team"
-            android:layout_width="56dp"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
             android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"/>
 
         <TextView
             android:id="@+id/tv_team2_name"

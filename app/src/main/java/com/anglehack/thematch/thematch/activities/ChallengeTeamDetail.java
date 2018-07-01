@@ -70,7 +70,7 @@ public class ChallengeTeamDetail extends AppCompatActivity {
         rvTeamPlayerList.setLayoutManager(new LinearLayoutManager(this));
 
 
-        teamDetailManager.getTeamDetail("1").subscribeOn(Schedulers.io())
+        teamDetailManager.getTeamDetail(String.valueOf(id)).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(list -> {
 
             adapter = new PlayerMemberAdapter(this, list.getPlayers());
