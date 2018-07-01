@@ -2,23 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anglehack.thematch.thematch">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".Match"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".Match">
-
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
-
-        </activity>
-
-        <activity android:name=".HomeActivity"
+            android:label="@string/app_name"></activity>
+        <activity
+            android:name=".HomeActivity"
             android:label="Log in Activity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -26,49 +24,40 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".activities.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-        </activity>
-
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
-
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.ChallengeTeamDetail"
-            android:parentActivityName=".HomeActivity">
-
-        </activity>
-
-        <activity android:name=".activities.TeamListActivity"/>
-        <activity android:name=".activities.TeamRegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activities.PendingConfirmActivity"/>
-
+            android:parentActivityName=".HomeActivity"></activity>
+        <activity android:name=".activities.TeamListActivity" />
         <activity
-            android:parentActivityName=".activities.ChallengeTeamDetail"
-            android:name=".activities.PlaceActivity">
-
-        </activity>
-
+            android:name=".activities.TeamRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.PendingConfirmActivity" />
+        <activity android:name=".activities.TeamCreateActivity"></activity>
     </application>
 
 </manifest>

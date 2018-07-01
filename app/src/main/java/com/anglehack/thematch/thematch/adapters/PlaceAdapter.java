@@ -35,6 +35,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PlaceViewHolder holder, int position) {
         holder.textview.setText(placelist.get(position).getName());
+        holder.textviewAddress.setText(placelist.get(position).getName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
