@@ -54,7 +54,7 @@ public class ChallengeFragment extends Fragment
 
         recyclerChallenge.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
-        teamManager.getTeams("1").subscribeOn(Schedulers.io())
+        teamManager.getTeams("3").subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(list->{
             ChallengeAdapter adapter = new ChallengeAdapter(getContext(), list);
             recyclerChallenge.setAdapter(adapter);
