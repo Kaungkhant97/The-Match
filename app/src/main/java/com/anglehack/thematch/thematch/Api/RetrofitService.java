@@ -21,13 +21,13 @@ import retrofit2.http.Query;
 
 public interface RetrofitService {
 
-    @GET("challenge/team")
+    @GET("api/challenge/team")
     Flowable<ArrayList<Team>> getChallengeTeams(@Query("teamId") String teamId);
 
-    @GET("team")
+    @GET("api/team")
     Flowable<TeamDetail> getTeamDetail(@Query("teamId") String teamId);
 
-    @GET("team/players")
+    @GET("api/team/players")
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
 
     @GET("player/others")
@@ -36,7 +36,7 @@ public interface RetrofitService {
     @GET("place")
     Flowable<Place> getPlace();
 
-    @POST("team/create")
+    @POST("api/team/create")
     Completable createTeam(@Body teamCreate teamCreate);
 
     @GET("api/team/challenge/accept")
