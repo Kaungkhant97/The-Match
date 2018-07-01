@@ -17,6 +17,7 @@ import com.anglehack.thematch.thematch.Manager.PlayerManager;
 import com.anglehack.thematch.thematch.Manager.TeamDetailManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.activities.ChallengeTeamDetail;
+import com.anglehack.thematch.thematch.activities.PendingConfirmActivity;
 import com.anglehack.thematch.thematch.activities.TeamListActivity;
 import com.anglehack.thematch.thematch.fragments.ChallengeFragment;
 import com.anglehack.thematch.thematch.fragments.PlaceFragment;
@@ -48,5 +49,9 @@ public interface ManagerComponent {
 
     void inject(TeamListActivity teamListActivity);
 
+<<<<<<< HEAD
     void inject(PlaceFragment placeFragment);
+=======
+    void inject(PendingConfirmActivity pendingConfirmActivity);
+>>>>>>> 6cc313492a2a8c961c748ef904f129b488ce474a
 }
