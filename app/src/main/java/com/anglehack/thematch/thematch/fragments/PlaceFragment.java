@@ -93,9 +93,10 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
     public void onClick(Place place) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, 1);
+
         Date time = calendar.getTime();
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String realdate = dateFormat.format(time);
         RetrofitService.challengeBody body = new RetrofitService.challengeBody("3", challengedTeam, realdate, String.valueOf(place.getId()));
 
