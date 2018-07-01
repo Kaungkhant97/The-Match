@@ -13,6 +13,7 @@ import com.anglehack.thematch.thematch.Manager.PlayerManager;
 import com.anglehack.thematch.thematch.Manager.TeamDetailManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.activities.ChallengeTeamDetail;
+import com.anglehack.thematch.thematch.activities.TeamListActivity;
 import com.anglehack.thematch.thematch.fragments.ChallengeFragment;
 import com.anglehack.thematch.thematch.fragments.PlayerListFragment;
 import com.anglehack.thematch.thematch.fragments.PlayerChallenge;
@@ -38,4 +39,6 @@ public interface ManagerComponent {
 
     void inject(PlayerListFragment fragment);
     void inject(ChallengeTeamDetail challengeTeamDetail);
+
+    void inject(TeamListActivity teamListActivity);
 }

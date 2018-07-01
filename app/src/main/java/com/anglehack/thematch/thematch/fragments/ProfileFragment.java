@@ -1,17 +1,22 @@
 package com.anglehack.thematch.thematch.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.anglehack.thematch.thematch.R;
+import com.anglehack.thematch.thematch.activities.TeamListActivity;
 import com.anglehack.thematch.thematch.adapters.PlayerFragmentPagerAdapter;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +40,12 @@ public class ProfileFragment extends Fragment {
 
     @BindView(R.id.btn_hostory)
     Button btnHistory;
+
+    @BindView(R.id.iv_account)
+    ImageView ivAccount;
+
+    @BindView(R.id.iv_team)
+    ImageView ivTeam;
 
 
     public ProfileFragment() {
@@ -105,6 +116,18 @@ public class ProfileFragment extends Fragment {
                 changeFragment(2);
             }
         });
+
+        ivTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), TeamListActivity.class);
+                startActivity(in);
+            }
+        });
+
+        String imageurl = "https://api.adorable.io/avatars/3";
+        Log.e( "bindData: ", imageurl);
+        Picasso.with(getContext()).load(imageurl).error(R.drawable.ic_people).into(ivAccount);
 
         return view;
     }

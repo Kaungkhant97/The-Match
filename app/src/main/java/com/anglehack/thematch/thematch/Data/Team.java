@@ -33,6 +33,15 @@ public  class Team {
     @Expose
     private String updatedAt;
 
+    public Team() {
+    }
+
+    public Team(Integer id, String name, String logoUrl) {
+        this.id = id;
+        this.name = name;
+        this.logoUrl = logoUrl;
+    }
+
     public Integer getId() {
         return id;
     }

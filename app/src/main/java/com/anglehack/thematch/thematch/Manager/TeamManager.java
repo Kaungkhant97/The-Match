@@ -17,5 +17,7 @@ public interface TeamManager {
 
     Flowable<ArrayList<Player>>  getTeamplayer(String teamId);
 
+    Flowable<ArrayList<Team>> getPlayerTeamList(String plyerId);
+
 
 }
