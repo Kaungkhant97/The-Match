@@ -63,6 +63,12 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activities.PendingConfirmActivity"/>
 
+        <activity
+            android:parentActivityName=".activities.ChallengeTeamDetail"
+            android:name=".activities.PlaceActivity">
+
+        </activity>
+
     </application>
 
 </manifest>

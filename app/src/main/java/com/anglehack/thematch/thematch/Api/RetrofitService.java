@@ -24,17 +24,13 @@ public interface RetrofitService {
     @GET("api/challenge/team")
     Flowable<ArrayList<Team>> getChallengeTeams(@Query("teamId") String teamId);
 
-    @GET("api/team")
+    @GET("team")
     Flowable<TeamDetail> getTeamDetail(@Query("teamId") String teamId);
 
-<<<<<<< HEAD
     @POST("challenge/send")
     Completable requestChallege(@Body()challengeBody  challengeBody);
 
     @GET("team/players")
-=======
-    @GET("api/team/players")
->>>>>>> 6cc313492a2a8c961c748ef904f129b488ce474a
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
 
     @GET("api/player/others")
