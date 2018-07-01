@@ -41,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
                 //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                   changeFragment(PlaceFragment.newInstance());
+                   changeFragment(PlaceFragment.newInstance("1"));
                     return true;
                 case R.id.navigation_notifications:
                     changeFragment(new ChallengeFragment());

@@ -3,8 +3,14 @@ package com.anglehack.thematch.thematch.Data;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public  class Team {
+import java.util.ArrayList;
 
+/**
+ * Created by Ko Oo on 1/7/2018.
+ */
+
+public class TeamDetail
+{
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -26,21 +32,9 @@ public  class Team {
     @SerializedName("point")
     @Expose
     private Integer point;
-    @SerializedName("created_at")
+    @SerializedName("players")
     @Expose
-    private String createdAt;
-    @SerializedName("updated_at")
-    @Expose
-    private String updatedAt;
-
-    public Team() {
-    }
-
-    public Team(Integer id, String name, String logoUrl) {
-        this.id = id;
-        this.name = name;
-        this.logoUrl = logoUrl;
-    }
+    private ArrayList<Player> players;
 
     public Integer getId() {
         return id;
@@ -98,20 +92,11 @@ public  class Team {
         this.point = point;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
     }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
 }

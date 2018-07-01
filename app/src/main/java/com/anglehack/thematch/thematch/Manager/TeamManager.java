@@ -12,10 +12,14 @@ import io.reactivex.Flowable;
 public interface TeamManager {
     Completable createTeam(RetrofitService.teamCreate team);
 
-    Flowable<ArrayList<Team>>  getTeams(String playerId);
+    Flowable<ArrayList<Team>>  getTeams(String teamId);
 
 
     Flowable<ArrayList<Player>>  getTeamplayer(String teamId);
+
+    Flowable<ArrayList<Team>> getPlayerTeamList(String plyerId);
+
+    Completable postChallenge(RetrofitService.challengeBody challengeBody);
 
 
 }

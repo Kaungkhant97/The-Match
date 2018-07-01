@@ -4,6 +4,7 @@ import com.anglehack.thematch.thematch.Data.Challenge;
 import com.anglehack.thematch.thematch.Data.Place;
 import com.anglehack.thematch.thematch.Data.Player;
 import com.anglehack.thematch.thematch.Data.Team;
+import com.anglehack.thematch.thematch.Data.TeamDetail;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -22,6 +23,12 @@ public interface RetrofitService {
 
     @GET("challenge/team")
     Flowable<ArrayList<Team>> getChallengeTeams(@Query("teamId") String teamId);
+
+    @GET("team")
+    Flowable<TeamDetail> getTeamDetail(@Query("teamId") String teamId);
+
+    @POST("challenge/send")
+    Completable requestChallege(@Body()challengeBody  challengeBody);
 
     @GET("team/players")
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
@@ -60,5 +67,32 @@ public interface RetrofitService {
         @SerializedName("players")
         List<String> playerlist;
     }
+
+
+    public static class challengeBody{
+
+        public challengeBody(String team1, String team2, String date, String placeId) {
+            this.team1 = team1;
+            this.team2 = team2;
+            this.date = date;
+            this.placeId = placeId;
+        }
+
+        @SerializedName("team1")
+        String team1;
+
+        @SerializedName("team2")
+        String team2;
+
+        @SerializedName("date")
+        String date;
+
+        @SerializedName("place_id")
+        String placeId;
+    }
+
+
+    @GET("api/player/team")
+    Flowable<ArrayList<Team>> getPlayerTeamList(@Query("playerId") String playerId);
 
 }

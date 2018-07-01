@@ -52,6 +52,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.ChallengeTeamDetail"
+            android:parentActivityName=".HomeActivity">
+
+        </activity>
+
+        <activity android:name=".activities.TeamListActivity"/>
+        <activity android:name=".activities.TeamRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 
