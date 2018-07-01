@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,11 +77,14 @@ public class PlayerChallenge extends Fragment {
     }
 
     private void networkCall() {
+
         if(id == 0 ){
             retrofitService.getaccepted("3").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                     .subscribe(List->{
                         playerChallengeAdapter.setChallengeList(List);
 
+                    },e->{
+                        Log.e( "onClick: ", e.getLocalizedMessage());
                     });
 
         }else if(id ==1){
@@ -88,21 +92,21 @@ public class PlayerChallenge extends Fragment {
                     .subscribe(List->{
                         playerChallengeAdapter.setChallengeList(List);
 
+                    },e->{
+                        Log.e( "onClick: ", e.getLocalizedMessage());
                     });
         }else{
             retrofitService.getPending("3").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                     .subscribe(List->{
                         playerChallengeAdapter.setChallengeList(List);
 
+                    },e->{
+                        Log.e( "onClick: ", e.getLocalizedMessage());
                     });
 
         }
 
-        retrofitService.getPending("3").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(List->{
-                    playerChallengeAdapter.setChallengeList(List);
 
-                });
     }
 
     @Override
