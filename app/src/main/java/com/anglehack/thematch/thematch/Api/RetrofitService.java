@@ -30,7 +30,7 @@ public interface RetrofitService {
     @GET("api/team/players")
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
 
-    @GET("player/others")
+    @GET("api/player/others")
     Flowable<ArrayList<Player>> getotherPlayer(@Query("playerId") String playerId);
 
     @GET("place")
@@ -47,6 +47,12 @@ public interface RetrofitService {
 
     @GET("api/team/challenge/history")
     Flowable<ArrayList<Challenge>> getHistory(@Query("teamId") String teamId);
+
+    @GET("api/team/invite/accept")
+    Flowable<String> accepted(@Query("challengeId") String challengeID);
+
+    @GET("api/team/invite/decline")
+    Flowable<String> decline(@Query("challengeId") String challengeID);
 
     public static class teamCreate{
         public teamCreate(String leadername, String teamname, List<String> playerlist) {

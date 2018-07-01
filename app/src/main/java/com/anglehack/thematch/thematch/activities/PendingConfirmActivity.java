@@ -1,5 +1,7 @@
 package com.anglehack.thematch.thematch.activities;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,9 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.anglehack.thematch.thematch.Api.RetrofitService;
 import com.anglehack.thematch.thematch.Data.Challenge;
+import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
+import com.anglehack.thematch.thematch.Di.module.NetworkModule;
 import com.anglehack.thematch.thematch.Match;
 import com.anglehack.thematch.thematch.R;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
@@ -19,8 +26,13 @@ import butterknife.ButterKnife;
 
 public class PendingConfirmActivity extends AppCompatActivity {
 
+    @Inject
+    RetrofitService retrofitService;
+
     TextView tvTeam1Name, tvTeam2Name, tvDate, tvTime, tvPlace;
     Button btnComfirmed, btnDecline;
+
+    String msg;
 
 
     @Override
@@ -28,6 +40,8 @@ public class PendingConfirmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pending_confirm);
         ButterKnife.bind(this);
+
+        DaggerManagerComponent.builder().build().inject(this);
 
 
         tvTeam1Name = findViewById(R.id.tv_team1_name);
@@ -47,15 +61,33 @@ public class PendingConfirmActivity extends AppCompatActivity {
         btnComfirmed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                retrofitService.accepted(String.valueOf(challenge.getId()));
+                msg = "You accepted the challenge";
+                showDialog();
             }
         });
 
         btnDecline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                retrofitService.decline(String.valueOf(challenge.getId()));
+                msg = "You decline the challenge";
+                showDialog();
             }
         });
+    }
+
+    private void showDialog(){
+        // 1. Instantiate an AlertDialog.Builder with its constructor
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+// 2. Chain together various setter methods to set the dialog characteristics
+        builder.setMessage(msg)
+        .setPositiveButton("OK", null);
+
+// 3. Get the AlertDialog from create()
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 }

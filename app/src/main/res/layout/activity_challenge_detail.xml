@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
@@ -24,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ID:"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
             android:textSize="16sp"
             android:padding="@dimen/margin_medium"
             android:layout_gravity="center"/>
@@ -63,8 +64,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Team Members"
-            android:textColor="@color/colorAccent"
-            android:layout_marginBottom="@dimen/margin_medium"/>
+            android:textColor="@color/colorWhite"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:background="@color/colorPrimary"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_team_player_list"

@@ -40,10 +40,10 @@ public class HomeActivity extends AppCompatActivity {
                 //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                   changeFragment(PlayerListFragment.newInstance());
+                   changeFragment(new ChallengeFragment());
                     return true;
                 case R.id.navigation_notifications:
-                    changeFragment(new ChallengeFragment());
+                    changeFragment(PlayerListFragment.newInstance());
                     return true;
             }
             return false;
