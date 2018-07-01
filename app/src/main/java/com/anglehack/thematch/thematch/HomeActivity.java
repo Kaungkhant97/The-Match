@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
+import com.anglehack.thematch.thematch.fragments.PlaceFragment;
 import com.anglehack.thematch.thematch.fragments.PlayerListFragment;
 import com.anglehack.thematch.thematch.fragments.ChallengeFragment;
 import com.anglehack.thematch.thematch.fragments.ProfileFragment;
@@ -40,7 +41,11 @@ public class HomeActivity extends AppCompatActivity {
                 //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
+<<<<<<< HEAD
+                   changeFragment(PlaceFragment.newInstance("1"));
+=======
                    changeFragment(new ChallengeFragment());
+>>>>>>> 6cc313492a2a8c961c748ef904f129b488ce474a
                     return true;
                 case R.id.navigation_notifications:
                     changeFragment(PlayerListFragment.newInstance());
@@ -67,13 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         DaggerManagerComponent.builder().build().inject(this);
 
         mTextMessage = (TextView) findViewById(R.id.message);
-        teamManager.getTeams("1").subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(list -> {
-                    Log.e("onCreate: ", list.get(0).getId() + "");
-                }, e -> {
-                    Log.e("onCreate: ", e.getLocalizedMessage());
-                });
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

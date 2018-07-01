@@ -8,7 +8,7 @@ import io.reactivex.Flowable;
 
 public interface PlaceManager {
 
-    Flowable<Place>  getplace();
+    Flowable<ArrayList<Place>>  getplace();
 
 
 }

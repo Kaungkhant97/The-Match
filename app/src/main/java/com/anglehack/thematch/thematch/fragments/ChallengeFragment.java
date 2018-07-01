@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,8 @@ public class ChallengeFragment extends Fragment
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(list->{
             ChallengeAdapter adapter = new ChallengeAdapter(getContext(), list);
             recyclerChallenge.setAdapter(adapter);
+        },e->{
+            Log.e("onCreateView: ",e.getLocalizedMessage());
         });
 
 

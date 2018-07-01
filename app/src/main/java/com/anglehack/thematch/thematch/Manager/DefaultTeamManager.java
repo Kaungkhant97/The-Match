@@ -37,4 +37,9 @@ public class DefaultTeamManager implements TeamManager {
     public Flowable<ArrayList<Team>> getPlayerTeamList(String playerID) {
         return retrofitService.getPlayerTeamList(playerID);
     }
+
+    @Override
+    public Completable postChallenge(RetrofitService.challengeBody challengeBody) {
+        return retrofitService.requestChallege(challengeBody);
+    }
 }

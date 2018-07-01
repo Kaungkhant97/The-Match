@@ -27,14 +27,21 @@ public interface RetrofitService {
     @GET("api/team")
     Flowable<TeamDetail> getTeamDetail(@Query("teamId") String teamId);
 
+<<<<<<< HEAD
+    @POST("challenge/send")
+    Completable requestChallege(@Body()challengeBody  challengeBody);
+
+    @GET("team/players")
+=======
     @GET("api/team/players")
+>>>>>>> 6cc313492a2a8c961c748ef904f129b488ce474a
     Flowable<ArrayList<Player>> getPlayers(@Query("teamId") String teamId);
 
     @GET("api/player/others")
     Flowable<ArrayList<Player>> getotherPlayer(@Query("playerId") String playerId);
 
-    @GET("place")
-    Flowable<Place> getPlace();
+    @GET("places")
+    Flowable<ArrayList<Place>> getPlace();
 
     @POST("api/team/create")
     Completable createTeam(@Body teamCreate teamCreate);
@@ -70,6 +77,30 @@ public interface RetrofitService {
         @SerializedName("players")
         List<String> playerlist;
     }
+
+
+    public static class challengeBody{
+
+        public challengeBody(String team1, String team2, String date, String placeId) {
+            this.team1 = team1;
+            this.team2 = team2;
+            this.date = date;
+            this.placeId = placeId;
+        }
+
+        @SerializedName("team1")
+        String team1;
+
+        @SerializedName("team2")
+        String team2;
+
+        @SerializedName("date")
+        String date;
+
+        @SerializedName("place_id")
+        String placeId;
+    }
+
 
     @GET("api/player/team")
     Flowable<ArrayList<Team>> getPlayerTeamList(@Query("playerId") String playerId);

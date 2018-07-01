@@ -3,6 +3,8 @@ package com.anglehack.thematch.thematch.Manager;
 import com.anglehack.thematch.thematch.Api.RetrofitService;
 import com.anglehack.thematch.thematch.Data.Place;
 
+import java.util.ArrayList;
+
 import io.reactivex.Flowable;
 
 public class DefaultPlaceManager implements PlaceManager {
@@ -15,7 +17,7 @@ public class DefaultPlaceManager implements PlaceManager {
     }
 
     @Override
-    public Flowable<Place> getplace() {
-        return Flowable.just(new Place());
+    public Flowable<ArrayList<Place>>  getplace(){
+        return retrofitService.getPlace();
     }
 }

@@ -19,5 +19,7 @@ public interface TeamManager {
 
     Flowable<ArrayList<Team>> getPlayerTeamList(String plyerId);
 
+    Completable postChallenge(RetrofitService.challengeBody challengeBody);
+
 
 }
