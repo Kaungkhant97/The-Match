@@ -1,6 +1,9 @@
 package com.anglehack.thematch.thematch.fragments;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +18,7 @@ import android.view.ViewGroup;
 import com.anglehack.thematch.thematch.Api.RetrofitService;
 import com.anglehack.thematch.thematch.Data.Place;
 import com.anglehack.thematch.thematch.Di.component.DaggerManagerComponent;
+import com.anglehack.thematch.thematch.HomeActivity;
 import com.anglehack.thematch.thematch.Manager.PlaceManager;
 import com.anglehack.thematch.thematch.Manager.TeamManager;
 import com.anglehack.thematch.thematch.R;
@@ -31,7 +35,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListner{
+public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListner {
 
     private static String CHALLENGETEAM;
     private RecyclerView recycler_places;
@@ -45,17 +49,19 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
 
     private PlaceAdapter placeAdapter;
     private String challengedTeam;
+    private String teamname = "";
+    private String message;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         challengedTeam = getArguments().getString(CHALLENGETEAM);
+        challengedTeam = getArguments().getString(CHALLENGETEAM);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.place_fragment,container,false);
+        View v = inflater.inflate(R.layout.place_fragment, container, false);
         recycler_places = v.findViewById(R.id.recycler_place);
         this.placeAdapter = new PlaceAdapter(new ArrayList<>());
         recycler_places.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -65,17 +71,17 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
         DaggerManagerComponent.builder().build().inject(this);
         placeManager.getplace().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(list ->{
+                .subscribe(list -> {
                     placeAdapter.addAll(list);
                     placeAdapter.notifyDataSetChanged();
                 });
-        return  v ;
+        return v;
     }
 
     public static Fragment newInstance(String challengedTeam) {
         PlaceFragment fragment = new PlaceFragment();
         Bundle args = new Bundle();
-        args.putString(CHALLENGETEAM,challengedTeam);
+        args.putString(CHALLENGETEAM, challengedTeam);
         fragment.setArguments(args);
         return fragment;
     }
@@ -89,13 +95,34 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String realdate = dateFormat.format(time);
         RetrofitService.challengeBody body = new RetrofitService.challengeBody("3", challengedTeam, realdate, String.valueOf(place.getId()));
-        teamManager.postChallenge(body)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(()->{
 
-                },e->{
-                    Log.e( "onClick: ", e.getLocalizedMessage());
-                });
+        if (challengedTeam.equals("3")) {
+            message = "You are about to make a challenge in this stadium";
+        } else {
+            message = "You are about to make a challenge with this" + teamname + "in this " + place.getName();
+
+
+        }
+        new AlertDialog.Builder(getContext()).setTitle("Challange")
+                .setMessage(message)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        teamManager.postChallenge(body)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(() -> {
+                                    getActivity().startActivity(new Intent(getContext(), HomeActivity.class));
+                                }, e -> {
+                                    Log.e("onClick: ", e.getLocalizedMessage());
+                                });
+                    }
+                }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).create().show();
+
     }
 }
