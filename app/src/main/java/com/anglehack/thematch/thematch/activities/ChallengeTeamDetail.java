@@ -35,6 +35,8 @@ public class ChallengeTeamDetail extends AppCompatActivity {
     public static final String ID = "id";
 
     int id;
+    String name;
+
     @BindView(R.id.img_team_logo)
     ImageView imgTeamLogo;
     @BindView(R.id.txt_team_id)
@@ -82,10 +84,16 @@ public class ChallengeTeamDetail extends AppCompatActivity {
             }
 
             Picasso.with(this).load(list.getLogoUrl()).into(imgTeamLogo);
+
+            name = list.getName();
         });
     }
 
     @OnClick(R.id.btn_challenge)
     public void onViewClicked() {
+        Intent i = new Intent(this, PlaceActivity.class);
+        i.putExtra("id", id);
+        i.putExtra("name", name);
+        startActivity(i);
     }
 }

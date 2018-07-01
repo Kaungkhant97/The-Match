@@ -1,5 +1,6 @@
 package com.anglehack.thematch.thematch.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +19,12 @@ public class PlaceActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place);
 
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("id", 0);
+        String name = intent.getStringExtra("name");
+
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container_place, new PlaceFragment())
+                .add(R.id.container_place,PlaceFragment.newInstance(String.valueOf(id)))
                 .commit();
     }
 }
