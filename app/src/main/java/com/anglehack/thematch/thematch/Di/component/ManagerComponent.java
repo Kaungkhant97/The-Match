@@ -53,5 +53,4 @@ public interface ManagerComponent {
     void inject(PlaceFragment placeFragment);
 
     void inject(PendingConfirmActivity pendingConfirmActivity);
-
 }

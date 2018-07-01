@@ -37,6 +37,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListner {
 
+    private static final String TEAMNAME = "teamName";
     private static String CHALLENGETEAM;
     private RecyclerView recycler_places;
 
@@ -56,6 +57,7 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         challengedTeam = getArguments().getString(CHALLENGETEAM);
+        teamname = getArguments().getString(TEAMNAME);
     }
 
     @Nullable
@@ -78,10 +80,11 @@ public class PlaceFragment extends Fragment implements PlaceAdapter.OnClickListn
         return v;
     }
 
-    public static Fragment newInstance(String challengedTeam) {
+    public static Fragment newInstance(String challengedTeam,String teamname) {
         PlaceFragment fragment = new PlaceFragment();
         Bundle args = new Bundle();
-        args.putString(CHALLENGETEAM, challengedTeam);
+        args.putString(CHALLENGETEAM, teamname);
+        args.putString(TEAMNAME, challengedTeam);
         fragment.setArguments(args);
         return fragment;
     }

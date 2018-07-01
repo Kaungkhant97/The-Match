@@ -57,8 +57,8 @@ public class PlayerChallengeListVH extends RecyclerView.ViewHolder {
         tvDate.setText(challenge.getReservedTime());
         tvPlace.setText(challenge.getPlace() + "");
 
-        Picasso.with(view.getContext()).load(challenge.getAcceptedTeamLogo()).into(ivOtherTeam);
-        Picasso.with(view.getContext()).load(challenge.getChallengerTeamLogo()).into(ivMyTeam);
+        Picasso.with(view.getContext()).load(challenge.getAcceptedTeamLogo()).into(ivMyTeam);
+        Picasso.with(view.getContext()).load(challenge.getChallengerTeamLogo()).into(ivOtherTeam);
 
         Match.setChallenge(challenge);
     }
