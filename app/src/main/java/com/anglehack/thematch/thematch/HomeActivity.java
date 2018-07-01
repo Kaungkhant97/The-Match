@@ -32,14 +32,13 @@ public class HomeActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        BottomNavigationView navigation;
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, ProfileFragment.newInstance()).commit();
-                    //    mTextMessage.setText(R.string.title_home);
+                            .replace(R.id.container,ProfileFragment.newInstance()).commit();
+                //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
 

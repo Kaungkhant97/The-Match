@@ -50,7 +50,6 @@ public class NetworkModule {
 
         return httpClient;
     }
-
     @Provides
     @Singleton
     GsonConverterFactory provideGsonFactory() {
@@ -71,7 +70,6 @@ public class NetworkModule {
 
 
     }
-
     @Provides
     @Singleton
     RetrofitService providesRetrofitservice(Retrofit retrofit) {
