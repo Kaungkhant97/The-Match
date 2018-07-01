@@ -49,6 +49,8 @@ public interface ManagerComponent {
 
     void inject(TeamListActivity teamListActivity);
 
+
     void inject(PlaceFragment placeFragment);
+
     void inject(PendingConfirmActivity pendingConfirmActivity);
 }

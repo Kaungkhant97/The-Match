@@ -41,23 +41,24 @@ public class HomeActivity extends AppCompatActivity {
                 //    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                   //changeFragment(PlaceFragment.newInstance("1"));
 
-                   changeFragment(new ChallengeFragment());
+                    changeFragment(new ChallengeFragment());
+
                     return true;
                 case R.id.navigation_notifications:
-                    changeFragment(PlayerListFragment.newInstance());
+                    changeFragment(PlaceFragment.newInstance("3"));
                     return true;
             }
             return false;
         }
     };
     private Toolbar toolbar;
+    public BottomNavigationView navigation;
 
-    private void changeFragment(Fragment fragment)
-    {
+
+    private void changeFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container,fragment)
+                .replace(R.id.container, fragment)
                 .commit();
     }
 
@@ -71,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mTextMessage = (TextView) findViewById(R.id.message);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_home);
