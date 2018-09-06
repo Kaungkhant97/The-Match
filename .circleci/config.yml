@@ -8,8 +8,8 @@ jobs:
 
     working_directory: ~/code
       # specify the version you desire here
-      docker:
-      - image: circleci/android:api-28-alpha
+  docker:
+    image: circleci/android:api-28-alpha
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
