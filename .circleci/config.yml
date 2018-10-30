@@ -29,10 +29,10 @@ jobs:
     - store_artifacts:
         path: app/build/outputs/apk/debug
         destination: apkss
-
     - run:
         name: Upload to Slack
-        command: curl -F file=@haha -F "initial_comment=success is here" -F channels=testlewis -H "Authorization: Bearer xoxp-69325341207-265644467143-467782762213-5a119d9261b5905e5256c701017b847f" https://slack.com/api/files.upload
+        command: |
+          curl -F file=@haha -F "initial_comment=success is here" -F channels=testlewis -H "Authorization: Bearer xoxp-69325341207-265644467143-467782762213-5a119d9261b5905e5256c701017b847f" https://slack.com/api/files.upload
 
 
         #    - store_test_results:
