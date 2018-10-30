@@ -6,6 +6,4 @@ jobs:
     steps:
     - run:
         name: Build debug APK and release APK
-        command: |
-          ./gradlew :app:assembleDebug
-          ./gradlew :app:assembleDebugAndroidTest
+        command:  ./gradlew :app:assembleDebug
