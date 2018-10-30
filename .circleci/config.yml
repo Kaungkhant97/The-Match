@@ -32,7 +32,7 @@ jobs:
     - run:
         name: Upload to Slack
         command: |
-          curl -F file=@haha -F "initial_comment=success is here" -F channels=testlewis -H "Authorization: Bearer xoxp-69325341207-265644467143-467782762213-5a119d9261b5905e5256c701017b847f" https://slack.com/api/files.upload
+          curl -F file=@haha -F "initial_comment=success is here" -F channels=testlewis -H "Authorization: Bearer xoxp-69325341207-265644467143-466985889553-ab2c856a696a8e771549dcf89e4cc175" https://slack.com/api/files.upload
 
 
         #    - store_test_results:
