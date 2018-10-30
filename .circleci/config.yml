@@ -1,8 +1,11 @@
 version: 2
 jobs:
-  build:
-    docker: # use the docker executor type; machine and macos executors are also supported
-    - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+  test:
+    docker:
+    - image: circleci/android:api-28-alpha  # gcloud is baked into this image
     steps:
-    - checkout # check out the code in the project directory
-    - run: echo "hello world" # run the `echo` command
+    - run:
+        name: Build debug APK and release APK
+        command: |
+          ./gradlew :app:assembleDebug
+          ./gradlew :app:assembleDebugAndroidTest
