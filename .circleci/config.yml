@@ -32,7 +32,7 @@ jobs:
 
     - run:
         name: exec
-        command: chmod +x upload
+        command: chmod +x upload;echo "upload"
     - run:
         name: Upload to Slack
         command: ./upload

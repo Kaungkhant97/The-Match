@@ -1,1 +1,1 @@
-curl -F file=@haha -F "initial_comment=success is here" -F channels=testlewis -H "Authorization: Bearer xoxp-69325341207-265644467143-466989193953-d8a58caada4f2d70d3521044a3648fba" https://slack.com/api/files.upload
+curl -F file=@app/build/outputs/apk/debug/app-debug.apk -F "initial_comment=success is here" -F channels=testlewis -H "Authorization: Bearer xoxp-69325341207-265644467143-466989193953-d8a58caada4f2d70d3521044a3648fba" https://slack.com/api/files.upload
