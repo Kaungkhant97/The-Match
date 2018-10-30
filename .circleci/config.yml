@@ -18,11 +18,9 @@ jobs:
         command: ./gradlew androidDependencies
     - run:
         name: building file
-        command: ./gradlew assembleDebug
+        command: ./gradlew assembleDebug |  echo ${CIRCLE_ARTIFACTS}
 
-    -run:
-        name: print
-        command: echo ${CIRCLE_ARTIFACTS}
+
     - save_cache:
         paths:
         - ~/.gradle
