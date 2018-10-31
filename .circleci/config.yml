@@ -30,12 +30,14 @@ jobs:
         path: app/build/outputs/apk/debug
         destination: apkss
 
-    - run:
-        name: exec
-        command: chmod +x upload;echo "upload"
+#  /  - run:
+#        name: exec
+#        command: chmod +x upload;echo "upload"
     - run:
         name: Upload to Slack
-        command: ./upload
+        command: |
+          curl -F file=@app/build/outputs/apk/debug/app-debug.apk -F "initial_comment=success is here" -F channels=testlewis -H $acccess_token https://slack.com/api/files.upload
+
 
 
 
