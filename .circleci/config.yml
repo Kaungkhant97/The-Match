@@ -18,7 +18,7 @@ jobs:
         command: ./gradlew androidDependencies
     - run:
         name: building file
-        command: ./gradlew assembleDebug |  echo ${CIRCLE_ARTIFACTS}
+        command: ./gradlew assembleDebug ;  echo ${CIRCLE_ARTIFACTS}
 
 
     - save_cache:
@@ -36,7 +36,7 @@ jobs:
     - run:
         name: Upload to Slack
         command: |
-          curl -F file=@app/build/outputs/apk/debug/app-debug.apk -F "initial_comment=success is here" -F channels=testlewis -F token=$token  -F title="gg" https://slack.com/api/files.upload
+          curl -F file=@app/build/outputs/apk/debug/app-debug.apk -F "initial_comment=success is here" -F channels=testlewis -F token=$token  -F title="my app" https://slack.com/api/files.upload
 
 
 
