@@ -29,4 +29,9 @@ dependencies {
     implementation(libs.h2.database)
     implementation(libs.bcrypt)
     implementation(libs.logback)
+
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.ktor.server.test.host)
+    testImplementation(libs.ktor.client.content.negotiation)
+    testImplementation(libs.kotlinx.coroutines.test)
 }
