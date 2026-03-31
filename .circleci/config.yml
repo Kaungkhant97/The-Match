@@ -1,46 +1,38 @@
-version: 2
+version: 2.1
+
 jobs:
   build:
     working_directory: ~/code
     docker:
-    - image: circleci/android:api-28-alpha
+      - image: cimg/android:2024.01
     environment:
       JVM_OPTS: -Xmx3200m
+      GRADLE_OPTS: -Dorg.gradle.daemon=false
     steps:
-    - checkout
-    - restore_cache:
-        key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-    #      - run:
-    #         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
-    #         command: sudo chmod +x ./gradlew
-    - run:
-        name: Download Dependencies
-        command: ./gradlew androidDependencies
-    - run:
-        name: building file
-        command: ./gradlew assembleDebug ;  echo ${CIRCLE_ARTIFACTS}
+      - checkout
+      - restore_cache:
+          key: gradle-{{ checksum "gradle/libs.versions.toml" }}-{{ checksum "shared/build.gradle.kts" }}
+      - run:
+          name: Download Dependencies
+          command: ./gradlew dependencies
+      - run:
+          name: Build Shared Module
+          command: ./gradlew :shared:build
+      - run:
+          name: Build Server
+          command: ./gradlew :server:build
+      - run:
+          name: Build Android App
+          command: ./gradlew :composeApp:assembleDebug
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: gradle-{{ checksum "gradle/libs.versions.toml" }}-{{ checksum "shared/build.gradle.kts" }}
+      - store_artifacts:
+          path: composeApp/build/outputs/apk/debug
+          destination: apks
 
-
-    - save_cache:
-        paths:
-        - ~/.gradle
-        key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-
-    - store_artifacts:
-        path: app/build/outputs/apk/debug
-        destination: apkss
-
-#  /  - run:
-#        name: exec
-#        command: chmod +x upload;echo "upload"
-    - run:
-        name: Upload to Slack
-        command: |
-          curl -F file=@app/build/outputs/apk/debug/app-debug.apk -F "initial_comment=success is here" -F channels=testlewis -F token=$token  -F title="my app" https://slack.com/api/files.upload
-
-
-
-
-        #    - store_test_results:
-    #        path: app/build/test-results
-    # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+workflows:
+  build:
+    jobs:
+      - build
